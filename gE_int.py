@@ -14,7 +14,7 @@ class gemCalculator:
                     Nm.append(int(line))
                 except:
                     Nm = Nm_generate(N, f=kf)
-                    sys.exit('Файл k.txt - проблема')
+                    # sys.exit('Файл k.txt - проблема')
         del kf, line
 
         f_out = open('src/gem.txt', 'w')  # очистить файл
