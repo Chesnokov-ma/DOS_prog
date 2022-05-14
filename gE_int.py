@@ -5,7 +5,7 @@ from Nm_generate import Nm_generate
 
 
 class gemCalculator:
-    def __init__(self, N):
+    def __init__(self, N, E_last_val='-0.09758'):
         start_time = time.time()
         Nm = []
         with open('src/k.txt', 'r') as kf:
@@ -19,6 +19,9 @@ class gemCalculator:
 
         f_out = open('src/gem.txt', 'w')  # очистить файл
         del f_out
+
+        # with open('src/gem.txt', 'w'):
+        #     pass
 
         M = []
         for file_m in list(range(N))[::2]:
@@ -66,6 +69,7 @@ class gemCalculator:
 
         with open('src/gem.txt', 'a') as f:  # дозаписать N = M с единсвенной точкой
             f.write('1\t-0.09758\t40\n')
+            # f.write('1\t{E_last_val}\t{N}\n')
 
         full_gem = pd.read_csv("src/gem.txt", names=['g', 'E', 'M'], sep='\t')  # отзеркалить график
         full_gem = full_gem.loc[full_gem['M'] != 0]
