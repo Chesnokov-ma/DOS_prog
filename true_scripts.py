@@ -21,5 +21,5 @@ def reformat_true_dos(file_name='src/dos_true.dat'):
 
 
 # reformat_true_dos()
-Cap = HeatCapacityCalculator('src/gem_true.txt')
+Cap = HeatCapacityCalculator(src_file='src/gem_true.txt')
 Cap.CalculateDemo('src/c_true.txt')
