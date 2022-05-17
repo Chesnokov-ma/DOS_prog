@@ -34,5 +34,5 @@ class GreedIntervalSplit:
         f_keys.close()
 
     @property
-    def interval(self):
+    def intervals(self):
         return self.__intervals

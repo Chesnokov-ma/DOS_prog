@@ -13,15 +13,15 @@ class HeatCapacityCalculator:
             sys.exit(f'файл {src_file} еще не создан')
 
     """ Расчитать теплоескость для M = 0 и вывести в файл """
-    def CalculateDemo(self, file_name='src/c.txt', k=1, T_start=0.0001, T_end=0.3, T_step=0.0001, T_size=100):
+    def CalculateCap(self, out_file_name='src/c.txt', k=1, T_start=0.0001, T_end=0.12, T_step=0.00001, T_size=100):
 
         # if T_step is None and T_size is not None:
+        #     pass
 
-        output_c_file = open(f'{file_name}', 'w')
-        # PE_E_file = open('pe/pe.txt', 'w')
+        output_c_file = open(f'{out_file_name}', 'w')
 
         df_m0 = self.__df
-        t_lst = simpleArangeWithStep(start=T_start, end=T_end, step=T_step, round_val=4)
+        t_lst = simpleArangeWithStep(start=T_start, end=T_end, step=T_step, round_val=10)
         # print(len(t_lst))
 
         g = df_m0['g'].tolist()
@@ -69,7 +69,7 @@ class HeatCapacityCalculator:
         output_c_file.close()
 
 
-Cap = HeatCapacityCalculator('src/gE_con.txt')
-Cap.CalculateDemo('src/c.txt')
+# Cap = HeatCapacityCalculator('src/gE_con.txt')
+# Cap.CalculateCap('src/c.txt')
 
 pass
