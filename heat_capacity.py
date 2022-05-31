@@ -1,7 +1,7 @@
 import pandas as pd
 import sys
 from math import e
-from simple_arange_withstep import simpleArangeWithStep
+from functions.simple_arange_withstep import simpleArangeWithStep
 
 
 class HeatCapacityCalculator:
@@ -13,7 +13,7 @@ class HeatCapacityCalculator:
             sys.exit(f'файл {src_file} еще не создан')
 
     """ Расчитать теплоескость для M = 0 и вывести в файл """
-    def CalculateCap(self, out_file_name='src/c.txt', k=1, T_start=0.0001, T_end=0.12, T_step=0.00001, T_size=100):
+    def CalculateCap(self, out_file_name='src/c.txt', k=1, T_start=0.0001, T_end=0.12, T_step=0.0001, T_size=100):
 
         # if T_step is None and T_size is not None:
         #     pass
@@ -46,9 +46,9 @@ class HeatCapacityCalculator:
             for i in range(len(E))[:]:
                 PE.append((g[i] * e ** (-1 * ((E[i] + 0.17998) / T))) / Z)
 
-            # with open(f'pe/pe{counter}.txt', 'w') as PE_E_file:
-            #     for i in range(len(PE)):
-            #         PE_E_file.write(f'{round(E[i], 5)}\t{round(PE[i], 5)}\n')
+            with open(f'pe/pe{counter}.txt', 'w') as PE_E_file:
+                for i in range(len(PE)):
+                    PE_E_file.write(f'{round(E[i], 5)}\t{round(PE[i], 10)}\n')
 
             # print(f'T={T}\tsum PE={sum(PE)}')
 
@@ -67,9 +67,3 @@ class HeatCapacityCalculator:
             counter += 1
 
         output_c_file.close()
-
-
-# Cap = HeatCapacityCalculator('src/gE_con.txt')
-# Cap.CalculateCap('src/c.txt')
-
-pass

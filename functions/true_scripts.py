@@ -11,7 +11,7 @@ def reformat_true_dos(file_name='src/dos_true.dat'):
     except FileNotFoundError:
         sys.exit(f'файл {file_name} еще не создан')
 
-    with open('src/gem_true.txt', 'w') as f:
+    with open('../src/gem_true.txt', 'w') as f:
         g = df['g'].tolist()
         E = df['E'].tolist()
         M = df['M'].tolist()
@@ -21,5 +21,5 @@ def reformat_true_dos(file_name='src/dos_true.dat'):
 
 
 # reformat_true_dos()
-Cap = HeatCapacityCalculator(src_file='src/gem_true.txt')
+Cap = HeatCapacityCalculator(src_file='../src/gem_true.txt')
 Cap.CalculateDemo('src/c_true.txt')

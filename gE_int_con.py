@@ -40,6 +40,7 @@ def gEconnect_interval(intervals, file_name='src/gem.txt', out_name='src/gE_con.
             loc_sum += int(row['g'])
         else:
             # print(f'{cur_E}\t{int(loc_sum)}')
+            # out.write(f'{round(cur_E, 5)}\t{int(loc_sum)}\n')
             E_lst.append(cur_E); g_lst.append(loc_sum)
             glob_sum += loc_sum
 
@@ -65,5 +66,3 @@ def gEconnect_interval(intervals, file_name='src/gem.txt', out_name='src/gE_con.
         print("Потеря точности после расчета = ", glob_sum / df['g'].sum())
         print("Итог: ", glob_sum / glob_sum_true)
     print("\n")
-
-    pass

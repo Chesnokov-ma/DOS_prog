@@ -1,7 +1,6 @@
 import pandas as pd
-import sys
 import time
-from Nm_generate import Nm_generate
+from functions.Nm_generate import Nm_generate
 
 
 class gemCalculator:
